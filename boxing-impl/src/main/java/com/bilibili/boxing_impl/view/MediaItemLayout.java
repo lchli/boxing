@@ -53,6 +53,7 @@ public class MediaItemLayout extends FrameLayout {
     private View mFontLayout;
     private ImageView mCoverImg;
     private ScreenType mScreenType;
+    private TextView media_name;
 
     private enum ScreenType {
         SMALL(100), NORMAL(180), LARGE(320);
@@ -82,6 +83,7 @@ public class MediaItemLayout extends FrameLayout {
         mCheckImg = (ImageView) view.findViewById(R.id.media_item_check);
         mVideoLayout = view.findViewById(R.id.video_layout);
         mFontLayout = view.findViewById(R.id.media_font_layout);
+        media_name = view.findViewById(R.id.media_name);
         mScreenType = getScreenType(context);
         setImageRect(context);
     }
@@ -126,6 +128,8 @@ public class MediaItemLayout extends FrameLayout {
     }
 
     public void setMedia(BaseMedia media) {
+        media_name.setVisibility(GONE);
+
         if (media instanceof ImageMedia) {
             mVideoLayout.setVisibility(GONE);
             setCover(((ImageMedia) media).getThumbnailPath());
@@ -138,8 +142,11 @@ public class MediaItemLayout extends FrameLayout {
             ((TextView) mVideoLayout.findViewById(R.id.video_size_txt)).setText(videoMedia.getSizeByUnit());
             setCover(videoMedia.getPath());
         } else if (media instanceof AudioMedia) {
+            media_name.setVisibility(VISIBLE);
             mVideoLayout.setVisibility(VISIBLE);
             AudioMedia videoMedia = (AudioMedia) media;
+
+            media_name.setText(videoMedia.getTitle());
             TextView durationTxt = ((TextView) mVideoLayout.findViewById(R.id.video_duration_txt));
             durationTxt.setText(videoMedia.getDuration());
             durationTxt.setCompoundDrawablesWithIntrinsicBounds(BoxingManager.getInstance().getBoxingConfig().getVideoDurationRes(), 0, 0, 0);

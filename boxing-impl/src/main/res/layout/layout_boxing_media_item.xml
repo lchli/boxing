@@ -28,6 +28,16 @@
         android:layout_gravity="center"
         android:scaleType="centerCrop"/>
 
+    <TextView
+        android:id="@+id/media_name"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:textSize="12sp"
+        android:padding="2dp"
+        android:text="name"
+       />
+
     <ImageView
         android:id="@+id/media_item_check"
         android:layout_width="wrap_content"
