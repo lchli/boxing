@@ -32,6 +32,7 @@
     <string name="boxing_pick_single_image_crop">图片单选加裁剪</string>
     <string name="boxing_pick_single_image">图片单选</string>
     <string name="boxing_video_title">视频相册</string>
+    <string name="boxing_audio_title">音频相册</string>
     <string name="boxing_finish">完成</string>
     <string name="boxing_start_pick">开始选图</string>
     <string name="boxing_load_image_fail">肥肠抱歉，加载出错啦</string>

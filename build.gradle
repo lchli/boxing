@@ -47,5 +47,5 @@ ext {
     targetSdkVersion = 27
     compileSdkVersion = 27
     minSdkVersion = 14
-    androidSupportLibraryVersion = '27.0.2'
+    androidSupportLibraryVersion = '25.1.1'
 }

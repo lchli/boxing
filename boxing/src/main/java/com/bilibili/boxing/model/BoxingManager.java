@@ -25,6 +25,7 @@ import com.bilibili.boxing.model.callback.IMediaTaskCallback;
 import com.bilibili.boxing.model.config.BoxingConfig;
 import com.bilibili.boxing.model.task.IMediaTask;
 import com.bilibili.boxing.model.task.impl.AlbumTask;
+import com.bilibili.boxing.model.task.impl.AudioTask;
 import com.bilibili.boxing.model.task.impl.ImageTask;
 import com.bilibili.boxing.model.task.impl.VideoTask;
 import com.bilibili.boxing.utils.BoxingExecutor;
@@ -56,7 +57,7 @@ public class BoxingManager {
 
     public void loadMedia(@NonNull final ContentResolver cr, final int page,
                           final String id, @NonNull final IMediaTaskCallback callback) {
-        final IMediaTask task = mConfig.isVideoMode() ? new VideoTask() : new ImageTask();
+        final IMediaTask task = mConfig.isVideoMode() ?new VideoTask() :mConfig.isAudioMode()? new AudioTask(): new ImageTask();
         BoxingExecutor.getInstance().runWorker(new Runnable() {
             @Override
             public void run() {

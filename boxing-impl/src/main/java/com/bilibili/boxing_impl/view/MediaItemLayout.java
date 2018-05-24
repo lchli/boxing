@@ -32,6 +32,7 @@ import android.widget.TextView;
 import com.bilibili.boxing.BoxingMediaLoader;
 import com.bilibili.boxing.model.BoxingManager;
 import com.bilibili.boxing.model.entity.BaseMedia;
+import com.bilibili.boxing.model.entity.impl.AudioMedia;
 import com.bilibili.boxing.model.entity.impl.ImageMedia;
 import com.bilibili.boxing.model.entity.impl.VideoMedia;
 import com.bilibili.boxing_impl.BoxingResHelper;
@@ -131,6 +132,14 @@ public class MediaItemLayout extends FrameLayout {
         } else if (media instanceof VideoMedia) {
             mVideoLayout.setVisibility(VISIBLE);
             VideoMedia videoMedia = (VideoMedia) media;
+            TextView durationTxt = ((TextView) mVideoLayout.findViewById(R.id.video_duration_txt));
+            durationTxt.setText(videoMedia.getDuration());
+            durationTxt.setCompoundDrawablesWithIntrinsicBounds(BoxingManager.getInstance().getBoxingConfig().getVideoDurationRes(), 0, 0, 0);
+            ((TextView) mVideoLayout.findViewById(R.id.video_size_txt)).setText(videoMedia.getSizeByUnit());
+            setCover(videoMedia.getPath());
+        } else if (media instanceof AudioMedia) {
+            mVideoLayout.setVisibility(VISIBLE);
+            AudioMedia videoMedia = (AudioMedia) media;
             TextView durationTxt = ((TextView) mVideoLayout.findViewById(R.id.video_duration_txt));
             durationTxt.setText(videoMedia.getDuration());
             durationTxt.setCompoundDrawablesWithIntrinsicBounds(BoxingManager.getInstance().getBoxingConfig().getVideoDurationRes(), 0, 0, 0);

@@ -81,6 +81,11 @@ public class BoxingActivity extends AbsBoxingActivity {
             titleTxt.setCompoundDrawables(null, null, null, null);
             return;
         }
+        if (config.getMode() == BoxingConfig.Mode.AUDIO) {
+            titleTxt.setText(R.string.boxing_audio_title);
+            titleTxt.setCompoundDrawables(null, null, null, null);
+            return;
+        }
         mPickerFragment.setTitleTxt(titleTxt);
     }
 

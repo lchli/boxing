@@ -26,8 +26,8 @@ import android.os.Parcelable;
  * @author ChenSL
  */
 public abstract class BaseMedia implements Parcelable {
-    protected enum TYPE {
-        IMAGE, VIDEO
+    public enum TYPE {
+        IMAGE, VIDEO,AUDIO
     }
 
     protected String mPath;

@@ -416,7 +416,7 @@ public class BoxingViewFragment extends AbsBoxingViewFragment implements View.On
                 singleImageClick(media);
             } else if (mode == BoxingConfig.Mode.MULTI_IMG) {
                 multiImageClick(pos);
-            } else if (mode == BoxingConfig.Mode.VIDEO) {
+            } else if (mode == BoxingConfig.Mode.VIDEO||mode == BoxingConfig.Mode.AUDIO) {
                 videoClick(media);
             }
         }

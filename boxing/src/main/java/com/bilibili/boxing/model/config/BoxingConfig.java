@@ -52,7 +52,7 @@ public class BoxingConfig implements Parcelable {
     private int mMaxCount = DEFAULT_SELECTED_COUNT;
 
     public enum Mode {
-        SINGLE_IMG, MULTI_IMG, VIDEO
+        SINGLE_IMG, MULTI_IMG, VIDEO,AUDIO
     }
 
     public enum ViewMode {
@@ -154,6 +154,10 @@ public class BoxingConfig implements Parcelable {
 
     public boolean isVideoMode() {
         return mMode == Mode.VIDEO;
+    }
+
+    public boolean isAudioMode() {
+        return mMode == Mode.AUDIO;
     }
 
     public boolean isMultiImageMode() {
